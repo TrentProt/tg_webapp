@@ -4,7 +4,7 @@ services:
     container_name: tgapp_backend
     env_file: .env
     ports:
-      - "8000:8000"
+      - "8000:${FASTAPI_PORT}"
     command: uvicorn backend.main:app --host ${FASTAPI_HOST} --port ${FASTAPI_PORT}
     restart: unless-stopped
 
@@ -19,5 +19,7 @@ services:
     build: .
     container_name: tgapp_user_client
     env_file: .env
+    volumes:
+      - ./user_client/sessions:/app/sessions
     command: python -m user_client.client
     restart: unless-stopped
