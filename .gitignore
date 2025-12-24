@@ -12,3 +12,6 @@ venv.bak/
 
 # PyCharm
 .idea/
+
+#Sessions
+user_client/session/

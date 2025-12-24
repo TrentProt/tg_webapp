@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: .
+    container_name: tgapp_backend
+    env_file: .env
+    ports:
+      - "8000:8000"
+    command: uvicorn backend.main:app --host ${FASTAPI_HOST} --port ${FASTAPI_PORT}
+    restart: unless-stopped
+
+  bot:
+    build: .
+    container_name: tgapp_bot
+    env_file: .env
+    command: python -m bot.bot
+    restart: unless-stopped
+
+  user_client:
+    build: .
+    container_name: tgapp_user_client
+    env_file: .env
+    command: python -m user_client.client
+    restart: unless-stopped
