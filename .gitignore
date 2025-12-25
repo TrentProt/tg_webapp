@@ -14,4 +14,4 @@ venv.bak/
 .idea/
 
 #Sessions
-user_client/session/
+user_client/sessions/*
