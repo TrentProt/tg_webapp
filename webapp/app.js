@@ -1,5 +1,5 @@
 const tg = window.Telegram.WebApp;
-const API_URL = "https://e43fb6f60393d2.lhr.life";
+const API_URL = "https://2c95a9edded467.lhr.life";
 
 tg.ready();
 

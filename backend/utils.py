@@ -12,11 +12,6 @@ def validate_init_data(init_data: str, bot_token: str) -> bool:
     Возвращает True если данные валидны.
     """
     try:
-        logger.info("=" * 50)
-        logger.info(f"НАЧАЛО ВАЛИДАЦИИ")
-        logger.info(f"Длина init_data: {len(init_data)} символов")
-        logger.info(f"Первые 100 символов: {init_data[:100]}")
-
         # Парсим параметры
         params = {}
         for pair in init_data.split('&'):
@@ -61,7 +56,7 @@ def validate_init_data(init_data: str, bot_token: str) -> bool:
         logger.info(f"Вычисленный хэш: {calculated_hash}")
         logger.info(f"Сравниваем: '{hash_received}' == '{calculated_hash}'")
 
-        # Безопасное сравнение
+        # Ccравнение
         result = hmac.compare_digest(calculated_hash, hash_received)
         logger.info(f"Результат валидации: {result}")
         logger.info("=" * 50)
